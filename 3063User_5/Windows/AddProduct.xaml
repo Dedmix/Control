@@ -1,0 +1,60 @@
+﻿<Window x:Class="_3063User_5.Windows.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3063User_5.Windows"
+        mc:Ignorable="d"
+        Title="AddProduct" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="15*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Add" Grid.Column="1" Grid.Row="1" DataContext="{Binding NewProduct}" Background="#FF76E383" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Margin="5">
+                <Label Content="Артикул" Margin="2.5"></Label>
+                <TextBox Margin="5" Text="{Binding ProductArticleNumber}"></TextBox>
+                <Label Content="Название" Margin="2.5"></Label>
+                <TextBox Margin="5" Text="{Binding ProductName}"></TextBox>
+                <Label Content="Цена" Margin="2.5"></Label>
+                <TextBox Margin="5" Text="{Binding ProductCost}"></TextBox>
+                <Label Content="Описание" Margin="2.5"></Label>
+                <TextBox Height="75" Margin="5" Text="{Binding ProductDescription}"/>
+                <Label Content="Категория" Margin="2.5"/>
+                <ComboBox Name="CategoryCB" Margin="2.5" DisplayMemberPath="NameCategory" SelectedItem="{Binding Category}"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5">
+                <Label Content="Производитель" Margin="2.5"/>
+                <ComboBox Name="ManufacturerCB" Margin="2.5" DisplayMemberPath="NameManufacturer" SelectedItem="{Binding Manufacturer}"></ComboBox>
+                <Label Content="Поставщик" Margin="2.5"/>
+                <ComboBox Name="SupplierCB" Margin="2.5" DisplayMemberPath="NameProvider" SelectedItem="{Binding Provider}"></ComboBox>
+                <Label Content="Максимальная скидка" Margin="2.5"/>
+                <TextBox Margin="5"  Text="{Binding ProductMaxDiscount}"/>
+                <Label Content="Действующая скидка" Margin="2.5"/>
+                <TextBox Margin="5"  Text="{Binding ProductDiscountAmount}"/>
+                <Label Content="Количество на складе" Margin="2.5"/>
+                <TextBox Margin="5" Text="{Binding ProductQuantityInStock}"/>
+                <Label Content="Единица измерения" Margin="2.5"/>
+                <ComboBox Name="UnitCombo" Margin="2.5" DisplayMemberPath="NameUnit" SelectedItem="{Binding Unit}"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
+                <Image x:Name="ProdPhoto" Height="100" Width="100" Margin="5" Source="{Binding ProductPhoto}"/>
+                <Button Content="Добавить изображение" Margin="15" Click="Button_Click_1" ></Button>
+                <Button Content="Добавить продукт" Margin="15" Click="Button_Click" ></Button>
+                <Image Height="100" Width="100" Source="\Materials\logo.png"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

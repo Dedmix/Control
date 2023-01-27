@@ -1,0 +1,61 @@
+﻿<Window x:Class="_3063User_5.Windows.editProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3063User_5.Windows"
+        mc:Ignorable="d"
+        Title="editPro" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="15*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="EditGrid" Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedProduct}" Background="#FF76E383" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Margin="5">
+                <Label Content="Артикул" Margin="2.5"/>
+                <TextBox Margin="5" Text="{Binding ProductArticleNumber}"/>
+                <Label Content="Название" Margin="2.5"/>
+                <TextBox Margin="5" Text="{Binding ProductName}"/>
+                <Label Content="Цена" Margin="2.5"/>
+                <TextBox Margin="5" Text="{Binding ProductCost}"/>
+                <Label Content="Описание" Margin="2.5"/>
+                <TextBox Height="75" Margin="5" Text="{Binding ProductDescription}"/>
+                <Label Content="Категория" Margin="2.5"/>
+                <ComboBox Name="CategoryCB" Margin="2.5" DisplayMemberPath="NameCategory" SelectedItem="{Binding Category}"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5">
+                <Label Content="Производитель" Margin="2.5"/>
+                <ComboBox Name="ManufacturerCombo" Margin="2.5" DisplayMemberPath="NameManufacturer" SelectedItem="{Binding Manufacturer}"></ComboBox>
+                <Label Content="Поставщик" Margin="2.5"/>
+                <ComboBox Name="ProviderCB" Margin="2.5" DisplayMemberPath="NameProvider" SelectedItem="{Binding Provider}"></ComboBox>
+                <Label Content="Максимальная скидка" Margin="2.5"/>
+                <TextBox Margin="5"  Text="{Binding ProductMaxDiscount}"/>
+                <Label Content="Действующая скидка" Margin="2.5"/>
+                <TextBox Margin="5"  Text="{Binding ProductDiscountAmount}"/>
+                <Label Content="Количество на складе" Margin="2.5"/>
+                <TextBox Margin="5" Text="{Binding ProductQuantityInStock}"/>
+                <Label Content="Единица измерения" Margin="2.5"/>
+                <ComboBox Name="UnitCB" Margin="2.5" DisplayMemberPath="NameUnit" SelectedItem="{Binding Unit}"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
+                <Image x:Name="Img" Height="100" Width="100" Margin="5" Source="{Binding ProductPhoto}"/>
+                <Button x:Name="AddPhoto" Content="Добавить изображение" Margin="15" Click="AddPhoto_Click"></Button>
+                <Button x:Name="UpdateProduct" Content="Обновить продукт" Margin="15" Click="UpdateProduct_Click" ></Button>
+                <Button x:Name="DeleteProduct" Content="Удалить продукт" Margin="15" Click="DeleteProduct_Click" ></Button>
+                <Image Height="100" Width="100" Source="\Materials\logo.png"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

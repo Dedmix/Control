@@ -1,0 +1,38 @@
+﻿<Page x:Class="_3063User_5.Pages.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_3063User_5.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800" FontFamily="Comic Sans MS" FontSize="16"
+      Title="Authorization">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="1" HorizontalAlignment="Center" Height="100"  VerticalAlignment="Top" Width="100" Source="\Materials\logo.png" Margin="0,10,0,0"/>
+        <Label Grid.Column="1" Content="ООО «Ювелир»" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top"/>
+        <Border  Grid.Column="1" Grid.Row="1" BorderBrush="Silver" BorderThickness="5" CornerRadius="10,10,5,5" Background="#FF76E383">
+            <StackPanel Name="StackPanel" >
+                <Label Content="Логин" Width="65"/>
+                <TextBox x:Name="Login" TextWrapping="Wrap" Width="250" RenderTransformOrigin="0.496,-0.229" />
+                <Label Content="Пароль" Width="77"/>
+                <PasswordBox x:Name="Password" Width="250"/>
+                <Label Name="Labelcap" Content="Введите текс ниже" Width="175"/>
+                <Canvas x:Name="CaptchaCanvas" Background="#FF488C51" Height="50" Width="240"></Canvas>
+                <TextBox x:Name="Captcha" TextWrapping="Wrap" Width="250"/>
+                <Button Content="Войти" Width="160" x:Name="logged" Click="logged_Click"/>
+                <Button Content="Продолжить без авторизации" Width="275" x:Name="input" Click="input_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
